@@ -382,7 +382,7 @@ class _CodeFieldState extends State<CodeField> {
       padding: EdgeInsets.only(
         right: widget.padding.right,
       ),
-      scrollDirection: Axis.horizontal,
+      scrollDirection: Axis.vertical,
       controller: _horizontalCodeScroll,
       child: intrinsic,
     );
@@ -429,8 +429,8 @@ class _CodeFieldState extends State<CodeField> {
         focusedBorder: InputBorder.none,
       ),
       cursorColor: widget.cursorColor ?? defaultTextStyle.color,
-      autocorrect: false,
-      enableSuggestions: false,
+      // autocorrect: false,
+      // enableSuggestions: false,
       enabled: widget.enabled,
       onChanged: widget.onChanged,
       readOnly: widget.readOnly,
