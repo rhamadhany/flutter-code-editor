@@ -117,6 +117,7 @@ class CodeController extends TextEditingController {
 
   @internal
   SearchResult fullSearchResult = SearchResult.empty;
+  String lastText = "";
 
   /// The last [TextSpan] returned from [buildTextSpan].
   ///
@@ -808,19 +809,20 @@ class CodeController extends TextEditingController {
 
   Future<void> generateSuggestions() async {
     final prefix = value.wordToCursor;
-    if (prefix == null) {
-      popupController.hide();
-      return;
-    }
+    lastText = prefix ?? "";
+    // if (prefix == null) {
+    //   popupController.hide();
+    //   return;
+    // }
 
-    final suggestions =
-        (await autocompleter.getSuggestions(prefix)).toList(growable: false);
+    // final suggestions =
+    //     (await autocompleter.getSuggestions(prefix)).toList(growable: false);
 
-    if (suggestions.isNotEmpty) {
-      popupController.show(suggestions);
-    } else {
-      popupController.hide();
-    }
+    // if (suggestions.isNotEmpty) {
+    //   popupController.show(suggestions);
+    // } else {
+    //   popupController.hide();
+    // }
   }
 
   void foldAt(int line) {
